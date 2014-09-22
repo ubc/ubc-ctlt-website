@@ -25,7 +25,7 @@ Class UBC_CTLT_Theme_Options {
     
         self::$prefix = 'wp-hybrid-clf'; // function hybrid_get_prefix() is not available within the plugin
         
-        self::$faculty_main_homepage = 'http://www.ctlt.ubc.ca';
+        self::$faculty_main_homepage = '//www.ctlt.ubc.ca';
         
         $theme = wp_get_theme();
         
@@ -181,14 +181,14 @@ Class UBC_CTLT_Theme_Options {
         </div>
       </div>
       <div id="education-unit-colour-box">
-        Read more about <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">colour contrast</a> and <a href="http://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">web accesibility</a>.
+        Read more about <a href="https://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">colour contrast</a> and <a href="https://clf.educ.ubc.ca/design-style-guide/clf-specifications/#contrast" target="_blank">web accesibility</a>.
         <div class="education-colour-item main-color"><br />
           <div class="picker"><b>MAIN COLOUR</b><br /><small>Changes the color for all header tags, subnavigation active/current page, .btn (only the .btn), tab hover and active, and accordion hover.</small> <br /><br /></div>
           <?php  UBC_Collab_Theme_Options::text( 'ctlt-main-colour' ); ?>
         </div>
         <br/>
         <div class="education-colour-item secondary-color">
-          <div class="picker"><b>SECONDARY COLOUR</b><br /><small>Changes the link colour for pages, header tags and post text links, and subnavigation section active.</small><br /><br /></div>
+          <div class="picker"><b>SECONDARY COLOUR</b><br /><small>Changes the link colour for pages, header tag links and post text links, and subnavigation section active.</small><br /><br /></div>
           <?php  UBC_Collab_Theme_Options::text( 'ctlt-gradient-colour' ); ?>
         </div>
       </div>
@@ -411,11 +411,15 @@ Class UBC_CTLT_Theme_Options {
   }
 <?php endif; ?>
 /*-- Typography  ---------------------------*/
- #content a, #content h1 a, #content h2 a, #content h3 a, #content h4 a, #content h5 a, #content h6 a, {
+a, #content h1 a, #content h2 a, #content h3 a, #content h4 a, #content h5 a, #content h6 a {
   color: <?php echo UBC_Collab_Theme_Options::get('ctlt-gradient-colour')?>;
  }
-#content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content .hero-unit h1, #frontpage-siderbar .tab-pane a, #content a:hover {
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content .hero-unit h1, #frontpage-siderbar .tab-pane a, a:hover {
  color:<?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
+}
+#content .btn:hover, #content button.btn:hover, #content .btn:focus, #content button.btn:focus {
+ background-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
+ border-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
 }
 /*-- Sidebar Navigation  ---------------------------*/
 				/*-- Current Pages  ---------------------------*/
@@ -450,7 +454,7 @@ background-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-hover-colour')?
 	border-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;	
 }
 /*-- Buttons  ---------------------------*/
-#content .btn {
+#content .btn, #content button.btn {
   border-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
   color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
 }
