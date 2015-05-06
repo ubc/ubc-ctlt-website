@@ -1,0 +1,141 @@
+#content .btn,
+#content button.btn {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #166A9A;
+  border-color: #166a9a;
+  border-color: #166A9A;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+#content .btn:hover,
+#content button.btn:hover,
+#content .btn:focus,
+#content button.btn:focus {
+  background-color: #166A9A;
+  border: 1px solid #166A9A;
+  border-color: #166a9a;
+  border-color: #166A9A;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: none;
+}
+#content .btn.btn-primary,
+#content button.btn.btn-primary {
+  background-color: #2F5D7C;
+  border: 1px solid #2F5D7C;
+  border-color: #2f5d7c;
+  border-color: #2F5D7C;
+  color: #fff;
+}
+#content .btn.btn-primary:hover,
+#content button.btn.btn-primary:hover,
+#content .btn.btn-primary:focus,
+#content button.btn.btn-primary:focus {
+  background-color: #002145;
+  border: 1px solid #002145;
+  border-color: #002145;
+  color: #fff;
+}
+#content .btn.btn-warning,
+#content button.btn.btn-warning {
+  background-color: #fff200;
+  border: 1px solid #FFF200;
+  border-color: #fff200;
+  border-color: #FFF200;
+  color: #222;
+}
+#content .btn.btn-warning:hover,
+#content button.btn.btn-warning:hover,
+#content .btn.btn-warning:focus,
+#content button.btn.btn-warning:focus {
+  background-color: #fff;
+  border: 1px solid #ccc200;
+  border-color: #ccc200;
+  color: #222;
+}
+#content .btn.btn-info,
+#content button.btn.btn-info {
+  background-color: #c3d0db;
+  border: 1px solid #C3D0DB;
+  border-color: #c3d0db;
+  border-color: #C3D0DB;
+  color: #002145;
+}
+#content .btn.btn-info:hover,
+#content button.btn.btn-info:hover,
+#content .btn.btn-info:focus,
+#content button.btn.btn-info:focus {
+  background-color: #fff;
+  border-color: #C3D0DB;
+}
+#content .btn.btn-success,
+#content button.btn.btn-success {
+  background-color: #95BE4D;
+  border: 1px solid #95BE4D;
+  border-color: #95be4d;
+  border-color: #95BE4D;
+  color: #222;
+}
+#content .btn.btn-success:hover,
+#content button.btn.btn-success:hover,
+#content .btn.btn-success:focus,
+#content button.btn.btn-success:focus {
+  background-color: #fff;
+  border: 1px solid #abcc72;
+  border-color: #abcc72;
+  color: #abcc72;
+}
+#content .btn.btn-danger,
+#content button.btn.btn-danger {
+  background: #AB1F2E;
+  border: 1px solid #AB1F2E;
+  border-color: #95be4d;
+  border-color: #AB1F2E;
+  color: #fff;
+}
+#content .btn.btn-danger:hover,
+#content button.btn.btn-danger:hover,
+#content .btn.btn-danger:focus,
+#content button.btn.btn-danger:focus {
+  background: #fff;
+  border: 1px solid #AB1F2E;
+  border-color: #95be4d;
+  border-color: #AB1F2E;
+  color: #AB1F2E;
+}
+#content .btn.btn-inverse,
+#content button.btn.btn-inverse {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #cccccc;
+  border-color: #ccc;
+  color: #222;
+}
+#content .btn.btn-inverse:hover,
+#content button.btn.btn-inverse:hover,
+#content .btn.btn-inverse:focus,
+#content button.btn.btn-inverse:focus {
+  background: #ccc;
+  border: 1px solid #ccc;
+  border-color: #cccccc;
+  border-color: #ccc;
+  color: #222;
+}
+#content .btn.btn-link,
+#content button.btn.btn-link {
+  background: 0;
+  border-color: transparent;
+  color: #2F5D7C;
+  text-decoration: none;
+}
+#content .btn.btn-link:hover,
+#content button.btn.btn-link:hover,
+#content .btn.btn-link:focus,
+#content button.btn.btn-link:focus {
+  color: #002145;
+  background-color: transparent;
+  border-color: transparent;
+}

@@ -1,0 +1,11 @@
+.header-img-container img {
+  display: block;
+  margin: 0 auto;
+  min-width: 100%;
+}
+@media screen and (max-width: 979px) {
+  .header-img-container {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}

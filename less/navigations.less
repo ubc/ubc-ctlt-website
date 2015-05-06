@@ -1,0 +1,283 @@
+@import "mixins.less";
+
+/*----------------------------------------- Top Level Navigation ---*/
+#ubc7-unit-menu ul.nav>li>a, #ubc7-unit-menu ul.nav>li>.btn-group>.btn {
+    text-transform: uppercase;
+}
+.navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus, #ubc7-unit-menu .nav>li.active>.btn-group, #ubc7-unit-alternate-navigation .nav>li.active>.btn-group {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+/* make submenu for sites right align */
+#ubc7-unit-menu div.navbar-inner ul.nav > li:last-child > .btn-group > ul.dropdown-menu {
+ /*right: 0;
+ left: auto;*/
+    ;
+}
+
+/* == make menu colours correct */
+div.navbar-inner .btn-group .btn {
+ /*color: #646464 !important; -- removed to make colour correct*/
+    border-right: 1px;
+}
+
+#ubc7-unit-menu .nav-collapse .nav>li>a:hover {
+ /* home button */
+    background-color: white !important;
+    color: @ctlt-color !important;
+}
+
+div.navbar-inner .btn-group:hover, div.navbar-inner .btn-group:hover .btn {
+ /* menu-item section */
+    background-color: white !important;
+    color: @ctlt-color !important;
+}
+
+#ubc7-unit-menu .btn-group button:hover {
+ /* menu-item button */
+    background-color: white !important;
+    color: @ctlt-color !important;
+}
+#ubc7-unit-menu .dropdown .btn-group:hover button .ubc7-arrow {
+ margin-top: 2px;   
+}
+#ubc7-unit-menu .dropdown:hover .btn-group .ubc7-arrow, #ubc7-unit-menu .dropdown:hover .dropdown-toggle .ubc7-arrow, #ubc7-unit-alternate-navigation .dropdown:hover .btn-group .ubc7-arrow {
+ /* force arrow to stay blue */
+    background: white url('http://cdn.ubc.ca/clf/7.0.4/img/ubc7-clf-sprite-blue.png') no-repeat -1178px -261px !important;
+}
+
+#ubc7-unit-menu .dropdown .btn-group.open:hover button .ubc7-arrow {
+    background-position: -1207px -261px !important;
+}
+
+#ubc7-unit-menu .nav>li.active>a, #ubc7-unit-menu .nav>li.active>.btn-group {
+ /* deal with active menu-item colour */
+    background-color: white;
+    color: @ctlt-color !important;
+}
+
+#ubc7-unit-menu .nav-collapse .dropdown-menu a:hover, .dropdown-menu .active>a {
+ /* dropdown highlighting */
+    background-color: white !important;
+    color: @ctlt-color !important;
+}
+
+#ubc7-unit-menu li.current-page-ancestor, #ubc7-unit-menu li.current-page-ancestor > .btn-group,  #ubc7-unit-menu li.current-page-ancestor > .btn-group .btn {
+    background-color: #fff !important;
+}
+@media screen and (max-width: 979px) {
+ #ubc7-unit-menu .nav>li.active>.btn-group.open .dropdown-menu a, #ubc7-unit-menu .nav>li.current_page_parent>.btn-group.open .dropdown-menu a {
+        background-color: #e7f4fc   
+    }
+    #ubc7-unit-menu .nav>li.active>.btn-group>a, #ubc7-unit-menu .nav>li.active>.btn-group>.btn, #ubc7-unit-menu .nav>li.current_page_parent>.btn-group>a, #ubc7-unit-menu .nav>li.current_page_parent>.btn-group>.btn, #ubc7-unit-menu .current_page_parent.dropdown:hover .btn-group .ubc7-arrow, #ubc7-unit-menu .current-page-ancestor.dropdown:hover .btn-group .ubc7-arrow, #ubc7-unit-menu .active.dropdown:hover .btn-group .ubc7-arrow {
+         background-color: @ctlt-color!important;
+         color: #fff!important
+    }
+    #ubc7-unit-menu .nav>li.current_page_parent .btn-group>a:hover, #ubc7-unit-menu .nav>li.current-page-ancestor .btn-group>a:hover {
+        color: #fff!important   
+    }  
+}
+
+/*----------------------------------------- Audience Navigation */
+
+/* ========================================================
+== Audience Menu
+========================================================*/
+#section-7 {
+    background-color: #f1f1f1;
+    overflow: hidden;
+}
+
+.audience {
+    width: 940px;
+    display: block;
+    margin: 0 auto;
+}
+
+.audience .icon-user {
+    margin-right: 7px;
+    float: left;
+    font-size: 18px;
+    color: #002145;
+    vertical-align: middle;
+    line-height: 1.9;
+}
+
+.audience .brand {
+    float: none;
+    line-height: normal;
+    display: none;
+    padding: 0;
+}
+
+.audience ul.menu {
+    margin: 0;
+    padding: 0;
+}
+
+.audience li {
+    list-style: none;
+    text-align: center;
+    float: left;
+    line-height: normal;
+    line-height: 2.5;
+}
+
+.audience li:hover {
+    background-color: #FFF;
+}
+
+.audience li>a, .audience .btn-group, .audience li a.btn {
+    font-size: 13px;
+    color: #001245;
+    height: 36px;
+}
+
+.audience li>a, .audience .btn {
+    padding: 0 8px;
+}
+
+.audience li.active {
+    background-color: #646464;
+    color: #FFF;
+}
+
+.audience li.active a {
+    color: #FFF;
+}
+
+.audience li.active:hover a {
+    color: #002145;
+}
+
+.audience li:hover, .audience li:focus {
+    background-color: #fff;
+}
+
+.audience .dropdown-menu {
+    right: 0;
+    left: auto;
+    margin: 0;
+}
+
+@media (min-width: 979px) {
+    .audience .nav-collapse.collapse {
+        height: 0!important;
+    }
+}
+
+@media (max-width: 979px) {
+    .utility #section-7.widget {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    .audience {
+        width: 100%;
+        margin: 0 auto 0 0;
+        display: block;
+    }
+
+    .audience ul {
+        float: none;
+        border-bottom: 1px solid @ctlt-color;
+        margin: 0 auto;
+    }
+
+    .audience li {
+        text-align: left;
+        float: none;
+        border-bottom: 1px solid #999;
+    }
+
+    .audience li>a {
+        font-size: 15px;
+        color: #001245;
+        display: block;
+    }
+
+    .audience ul.menu {
+        float: none;
+    }
+
+    .audience a.btn-navbar {
+        margin: 0 auto;
+        clear: both;
+        display: block;
+        margin-bottom: 0;
+        text-shadow: none;
+        background-color: #fff;
+        background-image: none;
+        border-bottom: 1px solid @ctlt-color;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        text-align: center;
+        float: none;
+    }
+
+    .audience .btn-navbar,.audience a.btn-navbar:hover {
+        color: #002145;
+    }
+
+    .audience a.btn-navbar, .audience .btn-navbar .icon-user {
+        font-size: 20px;
+    }
+
+    .audience .btn-navbar .icon-user {
+        margin: 0 5px 0 0;
+        float: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .audience {
+        width: 1170px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/*----------------------------------------- Sidenavigation For Usability */
+#primary-secondary {
+    margin-top: 20px
+}
+.sidenav.accordion {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    border-width: 0 0 1px
+}
+.sidenav .accordion-heading  {
+   border: none; 
+}
+.sidenav.accordion a:hover, #content .nav-list a {
+    text-decoration: none
+}
+.sidenav .opened a, .sidenav .single .opened {
+    background-color: @ctlt-color;   
+    color: #fff;
+}
+.sidebar .in .accordion-inner {
+    background-color: @ctlt-light
+}
+.sidebar .in .accordion-inner .accordion-heading {
+    border-bottom: 1px solid #d7e0e7 
+}
+.sidenav .accordion-group .opened .ubc7-arrow {
+    background-position: -1207px -227px!important;
+}
+.sidenav .accordion-heading .accordion-toggle:hover {
+    background-color: @ctlt-hover!important;
+}
+.sidenav .opened .right-arrow {
+    background-position: -1113px -227px!important;
+}
+#primary-secondary .in .accordion-inner a.opened {
+    background-color: @ctlt-sideinner
+}
+.sidenav .accordion-inner a {
+    border-color: @ctlt-sideinner
+}

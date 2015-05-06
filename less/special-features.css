@@ -1,0 +1,101 @@
+/* == make slider description float looking, and homepage tabs */
+/* ========================================================
+== Custom Tabs Look 
+========================================================*/
+.nav-tabs,
+.nav-tabs > li > a {
+  border-color: #0680a6;
+}
+.home #content ul.nav-tabs {
+  border-color: transparent;
+  margin-bottom: 0;
+}
+.nav-tabs > li > a {
+  margin: 0;
+  background: #fff;
+  color: #0680a6;
+  font-weight: 400;
+  border: 1px solid #0680a6;
+  border-width: 1px 1px 1px 0;
+}
+#content .nav-tabs > li > a:hover {
+  text-decoration: none;
+}
+.nav-tabs li:first-child a,
+#content .nav-tabs li:first-child a:hover,
+#content .nav-tabs li.active:first-child a {
+  border-left-width: 1px;
+}
+#content .nav-tabs > .active > a,
+#content .nav-tabs > li > a:hover {
+  background-color: #0680a6;
+  border: 1px solid #0680a6;
+  border-width: 1px 1px 1px 0;
+  color: #fff;
+}
+.home .tab-content {
+  border: 1px solid #0680a6;
+  padding: 0 15px;
+}
+#content .tab-pane a,
+#content .tab-pane a:hover {
+  text-decoration: none;
+}
+/* ========================================================
+== Custom Accordions Look 
+========================================================*/
+.sidenav .accordion-heading:hover,
+.sidenav .accordion-heading a:hover,
+.sidenav .accordion-heading:hover a:focus,
+.sidenav .accordion-heading:hover a:active,
+.sidenav .accordion-heading:hover .accordion-toggle,
+.sidenav .accordion-inner a:hover {
+  background-color: #0680a6 !important;
+  color: #fff;
+}
+#content .accordion-heading a:hover,
+#content .accordion-heading a:active,
+#content .accordion-heading a:focus {
+  background-color: #0680a6;
+  color: #fff;
+}
+#content .accordion-toggle,
+#content .accordion-toggle:hover {
+  text-decoration: none;
+}
+/* ========================================================
+== Landing Boxes
+========================================================*/
+#content .landing-boxes {
+  border-top: 1px solid #D7E0E7;
+  padding-top: 15px;
+}
+#content .landing-boxes [class*="span"] {
+  margin-bottom: 30px;
+}
+#content .landing-boxes h3 a {
+  text-decoration: none;
+}
+#content .landing-boxes .btn {
+  margin-top: 15px;
+}
+#content .landing-boxes h3 a:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 767px) {
+  .landing-boxes [class*="span"] {
+    border-top: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+}
+/* ========================================================
+== Custom Poster Lead 
+========================================================*/
+.poster {
+  border-top: 1px solid #166A9A;
+  padding-top: 30px;
+  border-bottom: 1px solid #166A9A;
+  padding-bottom: 30px;
+  font-size: 146.4%;
+}
