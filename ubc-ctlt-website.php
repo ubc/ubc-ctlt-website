@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 /*
   Plugin Name: UBC CTLT Website
@@ -17,18 +17,18 @@ Class UBC_CTLT_Theme_Options {
 
     /**
      * init function.
-     * 
+     *
      * @access public
-     * @return void	
+     * @return void
      */
     static function init() {
-    
+
         self::$prefix = 'wp-hybrid-clf'; // function hybrid_get_prefix() is not available within the plugin
-        
+
         self::$faculty_main_homepage = '//www.ctlt.ubc.ca';
-        
+
         $theme = wp_get_theme();
-        
+
         if( "UBC Collab" != $theme->name )
           return true;
 
@@ -36,7 +36,7 @@ Class UBC_CTLT_Theme_Options {
 
         add_filter( 'ubc_collab_default_theme_options', array(__CLASS__, 'default_values'), 10,1 );
 
-        add_filter( 'ubc_collab_theme_options_validate', array(__CLASS__, 'validate'), 10, 2 );  
+        add_filter( 'ubc_collab_theme_options_validate', array(__CLASS__, 'validate'), 10, 2 );
 
         add_action( 'wp_head', array( __CLASS__,'wp_head' ) );
 
@@ -46,16 +46,16 @@ Class UBC_CTLT_Theme_Options {
         //Adds Stylesheet
         add_action('wp_enqueue_scripts', array(__CLASS__, 'ctlt_theme_styles'));
 
-        add_action('wp_enqueue_scripts', array(__CLASS__,'theme_slug_fonts_url'), 1,3);    
+        add_action('wp_enqueue_scripts', array(__CLASS__,'theme_slug_fonts_url'), 1,3);
 
         add_filter('wp-hybrid-clf_after_header', array(__CLASS__,'output_ctlt_featured_img'), 11, 3);
 
         add_action( 'wp_footer', array(__CLASS__,'ctlt_global_js'), 10, 1 );
     }
-     
+
     /**
      * foe_uploader_options_enqueue_scripts function.
-     * 
+     *
      * @access static
      * @return void
      */
@@ -71,8 +71,8 @@ Class UBC_CTLT_Theme_Options {
       // Enqueue scripts and styles
       wp_enqueue_style('ctlt-theme-option-style');
       wp_enqueue_script('ctlt-theme-option-script');
-      wp_enqueue_script('ctlt-upload');     
-    
+      wp_enqueue_script('ctlt-upload');
+
       if(function_exists( 'wp_enqueue_media' )) :
             wp_enqueue_media();
           else :
@@ -85,7 +85,7 @@ Class UBC_CTLT_Theme_Options {
 
   /**
    * print_script function.
-   * 
+   *
    * @access public
    * @static
    * @return void
@@ -93,22 +93,22 @@ Class UBC_CTLT_Theme_Options {
   static function print_script() {
     if ( ! self::$add_script )
       return;
-                
+
     wp_print_scripts( 'ubc-collab-ctlt' );
-  }  
+  }
 
   static function ctlt_global_js() {
       wp_register_script('ctlt_global_js', plugins_url('/js/ctlt-js.js', __FILE__) );
-      wp_enqueue_script('ctlt_global_js');   
+      wp_enqueue_script('ctlt_global_js');
   }
     /**
      * admin function.
-     * 
+     *
      * @access public
      * @return void
      */
     static function admin(){
-        
+
         //Add CTLT Options tab in the theme options
         add_settings_section(
                 'ctlt-options', // Unique identifier for the settings section
@@ -147,34 +147,34 @@ Class UBC_CTLT_Theme_Options {
   						//array(__CLASS__,'ctlt_hardcoded_options'), // Function that renders the settings field
   						//'theme_options', // Menu slug, used to uniquely identify the page; see ubc_collab_theme_options_add_page()
   						//'ctlt-options' // Settings section. Same as the first argument in the add_settings_section() above
-  				//);  
-    }  
+  				//);
+    }
 
     /**
      *  CTLT opt in stylesheet.
      * Display colour options for CTLT specific template
      * @access public
      * @return void
-     */   
+     */
     static function ctlt_style_option(){ ?>
       <div class="explanation"><a href="#" class="explanation-help">Info</a>
         <div>Turn off CTLT new Stylesheet.
         </div>
       </div>
       <div id="education-unit-colour-box">
-        <?php UBC_Collab_Theme_Options::checkbox( 'ctlt-stylesheet', 1, 'Use new CTLT stylesheet?' ); ?><br /> 
-        <small>Check off to use the stylesheet.</small>  
+        <?php UBC_Collab_Theme_Options::checkbox( 'ctlt-stylesheet', 1, 'Use new CTLT stylesheet?' ); ?><br />
+        <small>Check off to use the stylesheet.</small>
       </div>
       <br/>
 
-      <?php 
+      <?php
         }
       /**
        *  ctlt_colour_options.
        * Display colour options for CTLT specific template
        * @access public
        * @return void
-       */   
+       */
       static function ctlt_colour_options(){ ?>
       <div class="explanation"><a href="#" class="explanation-help">Info</a>
         <div> Allows quick colour changes.
@@ -199,14 +199,14 @@ Class UBC_CTLT_Theme_Options {
                         </div>
       <br/>
 
-      <?php 
+      <?php
         }
       /**
        *  banner_options.
        * Display colour options for CTLT specific template
        * @access public
        * @return void
-       */   
+       */
       static function banner_options(){ ?>
       <div class="explanation"><a href="#" class="explanation-help">Info</a>
         <div><b>Adjust the featured image banner settings.</b>
@@ -228,42 +228,42 @@ Class UBC_CTLT_Theme_Options {
       </div>
 
       <br/>
-  <?php 
-      } 
-		
+  <?php
+      }
+
     /**
      * ctlt_hardcoded_options.
      * Display Hardcoded info and Faculty Resources
      * @access public
      * @return void
-     */      
+     */
     static function ctlt_hardcoded_options(){ ?>
       <div class="explanation"><a href="#" class="explanation-help">Info</a>
         <div>The following are the description of hardcoded items and resources for a Faculty of Education Theme.</div>
       </div>
       <div id="hardcoded-box"> <b>The following features are hardcoded:</b><br />
         <?php
-         
+
             ?>
       </div>
 <?php
 
     UBC_CTLT_Theme_Options::ctlt_defaults();
-    }    
-    
+    }
+
     static function ctlt_defaults(){
     }
-	
-    /*********** 
+
+    /***********
      * Default Options
-     * 
+     *
      * Returns the options array for CTLT fields.
      *
      * @since ubc-clf 1.0
      */
     static function default_values( $options ) {
 
-            if (!is_array($options)) { 
+            if (!is_array($options)) {
                     $options = array();
             }
 
@@ -280,8 +280,8 @@ Class UBC_CTLT_Theme_Options {
             $options = array_merge( $options, $defaults );
 
             return $options;
-    }  
-	
+    }
+
 	/**
 	 * Sanitize and validate form input. Accepts an array, return a sanitized array.
 	 *
@@ -292,60 +292,73 @@ Class UBC_CTLT_Theme_Options {
 	 * @return array Sanitized theme options ready to be stored in the database.
 	 *
 	 */
-	static function validate( $output, $input ) {
+	public static function validate( $output, $input ) {
 
 		// Grab default values as base
 		$starter = UBC_CTLT_Theme_Options::default_values( array() );
 
-	    // Validate Unit Colour Options A, B, and C
+		// Validate Unit Colour Options A, B, and C
+		$text_validate = array(
+			'ctlt-main-colour',
+			'ctlt-gradient-colour',
+			'ctlt-hover-colour',
+			'page_url_value',
+		);
 
-      $starter['ctlt-main-colour'] = UBC_Collab_Theme_Options::validate_text($input['ctlt-main-colour'], $starter['ctlt-main-colour'] );
-      $starter['ctlt-gradient-colour'] = UBC_Collab_Theme_Options::validate_text($input['ctlt-gradient-colour'], $starter['ctlt-gradient-colour'] );
-      $starter['ctlt-hover-colour'] = UBC_Collab_Theme_Options::validate_text($input['ctlt-hover-colour'], $starter['ctlt-hover-colour'] );
-      $starter['page_url_value'] = UBC_Collab_Theme_Options::validate_text($input['page_url_value'], $starter['page_url_value'] );
-      $starter['ctlt-stylesheet'] = (bool)$input['ctlt-stylesheet'];
+		foreach ( $text_validate as $id => $key ) {
+			if ( isset( $input[ $key ] ) ) {
+				$starter[ $key ] = UBC_Collab_Theme_Options::validate_text( $input[ $key ], $starter[ $key ] );
+			}
+		}
 
-      $starter['banner-width'] = UBC_Collab_Theme_Options::validate_text(intval($input['banner-width']), $starter['banner-width']);
-      $starter['banner-height'] = UBC_Collab_Theme_Options::validate_text(intval($input['banner-height']), $starter['banner-height'] );
-     // $output = strip_tags($output);
-			$output = array_merge($output, $starter);
+		$starter['ctlt-stylesheet'] = ( isset( $input['ctlt-stylesheet'] ) ) ? (bool) $input['ctlt-stylesheet'] : false;
 
-       // $string1 = $output;
-        //$string = strip_tags($string1);
+		$intval_validate = array(
+			'banner-width',
+			'banner-height',
+		);
 
-           return $output;            
-        }
-		
+		foreach ( $intval_validate as $iid => $ikey ) {
+			if ( isset( $input[ $ikey ] ) ) {
+				$starter[ $ikey ] = UBC_Collab_Theme_Options::validate_text( intval( $input[ $ikey ] ), $starter[ $ikey ] );
+			}
+		}
+
+		$output = array_merge( $output, $starter );
+
+		return $output;
+  }
+
 	 /**
      * ctlt_theme_styles
      * Adds the Faculty of CTLT Stylesheet
-     */         
+     */
 		static function ctlt_theme_styles()  {
 
 
 			  wp_register_style( 'ctlt-clf', plugins_url('/css/global.css', __FILE__, true ) );
-		    if (UBC_Collab_Theme_Options::get( 'ctlt-stylesheet') == 1) : 
+		    if (UBC_Collab_Theme_Options::get( 'ctlt-stylesheet') == 1) :
 			  // enqueing:
 			  wp_enqueue_style( 'ctlt-clf' );
         endif;
 
 
-			  
-		}	
+
+		}
 	 /**
      * ctlt_enqueue_script
      * Adds the Faculty of CTLT Stylesheet
-     */         
-		static function ctlt_enqueue_script()  { 
+     */
+		static function ctlt_enqueue_script()  {
 			  // enqueing:
 			  wp_enqueue_script( 'ctlt-enq-script' );
-			  
+
 		}
-							
+
    /**
    * output_ctlt_featured_img
    * Adds featured images to WP pages
-   */         
+   */
    static function output_ctlt_featured_img(){
 
      if ( is_page() && ! is_front_page() && ! is_home() ) {
@@ -357,7 +370,7 @@ Class UBC_CTLT_Theme_Options {
               if ($image_size[1] >= UBC_Collab_Theme_Options::get( 'banner-width') && $image_size[2] == UBC_Collab_Theme_Options::get( 'banner-height')) :
                 echo "<div class=\"header-img-container\"><img class=\"special-featured-images\" src=\"" . $image_url[0] ."\" title=\"" . the_title_attribute('echo=0') . "\" alt=\"" . the_title_attribute('echo=0') . "\" /></div>";
               endif;
-				
+
 			 } else {
                     echo "";
                 }
@@ -367,7 +380,7 @@ Class UBC_CTLT_Theme_Options {
   static function theme_slug_fonts_url() {
   if (!is_admin()) {
       wp_register_style('googleFont', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,800,700');
-      if (UBC_Collab_Theme_Options::get( 'ctlt-stylesheet') == 1) : 
+      if (UBC_Collab_Theme_Options::get( 'ctlt-stylesheet') == 1) :
         wp_enqueue_style('ggl', get_stylesheet_uri(), array('googleFont') );
       endif;
     }
@@ -380,8 +393,8 @@ Class UBC_CTLT_Theme_Options {
       /**
      * wp_head
      * Appends some of the dynamic css and js to the wordpress header
-     */        
-        static function wp_head(){ 
+     */
+        static function wp_head(){
 
 
           // PHP will try to detect the middle count to help color contrast with background colors
@@ -451,7 +464,7 @@ background-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-hover-colour')?
 /*-- tab Hover  ---------------------------*/
 #content .nav-tabs>.active>a, #content .nav-tabs>li>a:hover, #content .nav-tabs>li>a:focus {
 	background-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
-	border-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;	
+	border-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
 }
 /*-- Buttons  ---------------------------*/
 #content .btn, #content button.btn {
@@ -467,8 +480,8 @@ background-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-hover-colour')?
   background-color: <?php echo UBC_Collab_Theme_Options::get('ctlt-main-colour')?>;
 }
 </style>
-<?php 
-    } 
+<?php
+    }
 }
 
 UBC_CTLT_Theme_Options::init();
